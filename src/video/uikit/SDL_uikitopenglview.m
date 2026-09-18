@@ -155,7 +155,7 @@
             glGenRenderbuffers(1, &msaaRenderbuffer);
             glBindRenderbuffer(GL_RENDERBUFFER, msaaRenderbuffer);
 
-            glRenderbufferStorageMultisample(GL_RENDERBUFFER, samples, colorBufferFormat, backingWidth, backingHeight);
+            glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, colorBufferFormat, backingWidth, backingHeight);
 
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, msaaRenderbuffer);
         }
@@ -174,7 +174,7 @@
             glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
 
             if (samples > 0) {
-                glRenderbufferStorageMultisample(GL_RENDERBUFFER, samples, depthBufferFormat, backingWidth, backingHeight);
+                glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, depthBufferFormat, backingWidth, backingHeight);
             } else {
                 glRenderbufferStorage(GL_RENDERBUFFER, depthBufferFormat, backingWidth, backingHeight);
             }
@@ -239,14 +239,14 @@
 
     if (msaaRenderbuffer != 0) {
         glBindRenderbuffer(GL_RENDERBUFFER, msaaRenderbuffer);
-        glRenderbufferStorageMultisample(GL_RENDERBUFFER, samples, colorBufferFormat, backingWidth, backingHeight);
+        glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, colorBufferFormat, backingWidth, backingHeight);
     }
 
     if (depthRenderbuffer != 0) {
         glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
 
         if (samples > 0) {
-            glRenderbufferStorageMultisample(GL_RENDERBUFFER, samples, depthBufferFormat, backingWidth, backingHeight);
+            glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, samples, depthBufferFormat, backingWidth, backingHeight);
         } else {
             glRenderbufferStorage(GL_RENDERBUFFER, depthBufferFormat, backingWidth, backingHeight);
         }
